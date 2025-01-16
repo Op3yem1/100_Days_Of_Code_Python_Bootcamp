@@ -41,12 +41,20 @@ if direction == "left":
         else:
             money -= 60
             print(f"The boatperson snatches what money you did have in your hand, leaving you with nothing! They motion for you to get in.")
-        print("On the other side of the marina, you get out of the canoe, your pocket a lot lighter than before. Hopefully you won't need to spend anything.")
+        print("On the other side of the marina, you get out of the canoe, your pocket a lot lighter than before. Hopefully you won't need to spend any money.")
         print("You walk north for about a mile when you come to an odd-looking tavern with 3 doors. It's not obvious which one is the main front door.")
         door_decision = input("Which door do you walk through? Red, blue or yellow: ").lower()
         if door_decision == "yellow":
             print("You walk through the yellow door. There is nothing there other than an old slots machine.")
-
+            if money > 0:
+                print(f"Thankfully you have K{money} left, which is just enough to play.\nYou enter the coins and the slot machine releases a key.")
+                print("A little girl walks towards you with a chest. It would appear you have won!")
+            else:
+                print("It looks like the slot machine is the key to the treasure, but unfortunately you have no money left. So close, yet so far! ")
+        elif door_decision == "blue":
+            print("A wild beast that you can't make out charges towards you as soon as you open the door! Your life ebbs away as the horns gore you again and again...")
+        else:
+            print("As soon as you step through the door, it snaps shut! There doesn't seem to be any way out. Too late, you realise you can smell gas.\nBefore you can react, the room is engulfed in flames! The smoke fills your lungs as your life ebbs away slowly...")
     else:
         print("Mystical creatures? Probably an old wives' tale, you think to yourself. You lunge into the waters.")
         print("You swim for a few minutes when you see ripples in your peripheral vision.")
@@ -58,3 +66,5 @@ else:
     print("As you look behind you, you don't notice that you've stepped into a carefully hidden trap!")
     print("3 heavily built men with face tattoos appear beside you holding spears. They don't look too friendly.")
     print("Your whole leg is stuck. They tie you up easily. You know in your heart, this is the end.")
+
+print("The end!")
