@@ -9,11 +9,13 @@ comparison_B = ''
 score = 0
 
 def generate_selection(index):
+    """The function returns a random selection from the list of dictionaries in game_data.data and returns a formatted statement such as 'Selena Gomez, a Musician from United States'."""
     selection = game_data.data[index]
     statement = f"{selection["name"]}, a {selection["description"]} from {selection["country"]}"
     return statement
 
 def higher_or_lower(index_a,index_b):
+    """Compares the follower count of B against A. If the second comparison has more followers, the function returns 'Higher' otherwise, it returns 'Lower' """
     followers_a = game_data.data[index_a]["follower_count"]
     followers_b = game_data.data[index_b]["follower_count"]
     if followers_b > followers_a:
@@ -27,6 +29,8 @@ while continue_playing:
     #Select random A to compare against random B. e.g Compare 'name', a 'description' from 'country'
     random_num = random.randrange(0, len(game_data.data) - 1)
     random_num2 = random.randrange(0, len(game_data.data) - 1)
+    while random_num2 == random_num:
+        random_num2 = random.randrange(0, len(game_data.data) - 1)
 
     if comparison_A == '':
         comparison_A = generate_selection(random_num)
@@ -41,7 +45,7 @@ while continue_playing:
 
     comparison_B = generate_selection(random_num2)
     f_count_B = game_data.data[random_num2]["follower_count"]
-    print(f"{comparison_B}")
+    print(f"Against {comparison_B}")
 
     user_choice = input("Higher or Lower? ").title()
     result = higher_or_lower(random_num,random_num2)
