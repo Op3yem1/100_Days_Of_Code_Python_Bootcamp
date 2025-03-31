@@ -1,4 +1,4 @@
-from random import random, randint, choice, uniform
+from random import randint, choice, uniform
 import colorgram
 
 shapes = [
