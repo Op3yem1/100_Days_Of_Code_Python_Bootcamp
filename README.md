@@ -46,4 +46,4 @@ I have created this project on a Windows 64-bit OS and entirely in PyCharm Commu
 A very special thank you to Angela Yu at The App Brewery, whose 100 Days Of Code Bootcamp course mad e it possible for me to achieve this portfolio
 
 ## Contact
-For all things development-related, I  can be contacted at opeyemi.atwork@gmail.com
+Lets's connect on LinkedIn! https://www.linkedin.com/in/opejohnson/
