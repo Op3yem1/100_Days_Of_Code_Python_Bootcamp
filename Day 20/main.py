@@ -1,36 +1,34 @@
 from turtle import Screen, Turtle
+import time
+from snake import Snake
 
-snake = Turtle()
 screen = Screen()
 
 # set screen visuals and create snake body
 screen.bgcolor("black")
+screen.title("Snake Game")
 screen.screensize(canvwidth=600,canvheight=600)
-snake.color("white")
-snake.shape("square")
-snake.shapesize(stretch_wid=1, stretch_len=3)
+screen.setup(width=600,height=600)
+screen.tracer(0)
 
-# Move snake
-def move(game_over):
-    while not game_over:
-        snake.forward(10)
+snake = Snake()
+screen.listen()
+screen.update()
 
-def turn_right():
-    """The snake will turn right from its current position."""
-    snake.right(90)
+game_on = True
+while game_on:
+    time.sleep(0.1)
+    screen.update()
+    snake.move()
+    snake.head_move()
+    screen.onkey(key="Left",fun=snake.turn_left)
+    screen.onkey(key="Right", fun=snake.turn_right)
+    screen.onkey(key="Up",fun=snake.up)
+    screen.onkey(key="Down",fun=snake.down)
 
-def turn_left():
-    """The snake will turn left from its current position."""
-    snake.left(90)
 
-def begin_game():
-    move()
 
-screen.onkey(key = "enter", fun = begin_game)
-#screen.onkey(key="space",fun=move)
-screen.onkey(key = "a",fun = turn_left)
-screen.onkey(key = "d",fun = turn_right)
 
 #----------------------------
-screen.listen()
+
 screen.exitonclick()
