@@ -1,6 +1,6 @@
 # Read Me
 ## Introduction
-This repo is a compilation of 100 projects undertaken as part of an upskill challenge I set for myself to learn Python in 100 days. The projects start out simple and become more complex. Some projects contain additional mini-exercises that build up to the final project.
+This repo is a compilation of 100 projects undertaken as part of an upskill challenge I set for myself to learn Python before the end of the year. The projects start out simple and become more complex. Some projects contain additional mini-exercises that build up to the final project.
 
 ## Prerequisites
 I have created this project on a Windows 64-bit OS and entirely in PyCharm Community edition. You will also need Python installed on your machine. I've used Python 3.13
