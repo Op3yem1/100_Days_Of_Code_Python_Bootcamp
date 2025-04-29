@@ -10,7 +10,7 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()
         self.player_score = 0
-        self.goto(-20,250)
+        self.goto(-40,350)
         self.write_score()
 
     def write_score(self):
@@ -21,7 +21,7 @@ class Scoreboard(Turtle):
     def increase_score(self):
         """The player's current score is increased by 1."""
         self.player_score += 1
-        return self.player_score
+        self.write_score()
 
     def game_over(self):
         """If the snake collides with the wall or the snake body, then the game over sequence is triggered. The words GAME OVER are displayed on the game screen."""

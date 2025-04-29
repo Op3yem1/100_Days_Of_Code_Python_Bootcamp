@@ -19,18 +19,14 @@ class Snake(Turtle):
     def create_snake(self):
         """Creates the initial snake with 3 squares at the centre of the screen."""
         for point in START_COORDS:
-            snake = Turtle("square")
-            snake.color(COLOR)
-            snake.penup()
-            snake.teleport(point[0],point[1])
-            self.segments.append(snake)
+            self.grow(position=point)
 
-    def grow(self):
+    def grow(self,position):
         """Increases the length of the snake by a single segment. Snake grows after colliding with food."""
         seg = Turtle("square")
         seg.color(COLOR)
         seg.penup()
-        seg.teleport(self.segments[-1].xcor(),self.segments[-1].ycor())
+        seg.teleport(position[0],position[1])
         self.segments.append(seg)
 
     def move(self):
@@ -60,4 +56,3 @@ class Snake(Turtle):
         """The snake will face down from its current position."""
         if self.head.heading() != ANGLES.get("Up"):
             self.head.setheading(ANGLES["Down"])
-

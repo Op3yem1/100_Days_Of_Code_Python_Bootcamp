@@ -39,26 +39,19 @@ while game_on:
     # Detect collision with food
     if snake.head.distance(food) < THRESHOLD:
         food.appear()
-        snake.grow()
+        snake.grow(position=snake.segments[-1].pos())
         score.increase_score()
-        score.write_score()
 
     # Detect collision with wall or snake body
-    if snake.head.xcor() > screen_right_x or snake.head.xcor() < screen_left_x or snake.head.ycor() > screen_top_y or snake.head.ycor() < screen_bottom_y:
+    if snake.head.xcor() >= screen_right_x or snake.head.xcor() <= screen_left_x or snake.head.ycor() >= screen_top_y or snake.head.ycor() <= screen_bottom_y:
         game_on = False
         score.game_over()
-        print("collision with wall")
 
-# Fix this buggy bit here
-    if len(snake.segments) > 4:
-        for seg in snake.segments[4:-1]:
-            if abs(snake.head.xcor() - seg.xcor() < THRESHOLD) and abs(snake.head.ycor() - seg.ycor() < THRESHOLD):
-                game_on = False
-                score.game_over()
-                print(f"Snake head at {snake.head.xcor()},{snake.head.ycor()}")
-                print(f"collision with body at {seg.xcor()},{seg.ycor()}")
-                break
-
+    # Detect collision with snake body
+    for seg in snake.segments[1:]:
+        if snake.head.distance(seg) < THRESHOLD:
+            game_on = False
+            score.game_over()
 
 
 
